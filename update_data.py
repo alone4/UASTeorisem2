@@ -59,7 +59,7 @@ class changed_transaction(data,user):
                 del isi[x] 
         print("data berhasil di hapus")
         self.lanjut_berhenti()
-        
+
     def lanjut_berhenti(self):
          print("1.Lanjut \n2.Berhenti")
          pilihan = str(input("Masukkan pilihan: "))
@@ -67,5 +67,3 @@ class changed_transaction(data,user):
               self.showed_transaction()
          elif pilihan == "berhenti":
               None
-         
-changed_transaction().showed_transaction()

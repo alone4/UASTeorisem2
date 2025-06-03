@@ -2,7 +2,7 @@ from data import data_user
 
 class user:
     def __init__(self):
-        self.__username = "alice_wong"
+        self.__username = None
         self.__password = None
     
     def check_akun(self,usern):
@@ -29,7 +29,9 @@ class user_login(user):
          if usern == self.get__username():
             self.check_password()
             if password == self.get__password():
-                print("selamat berhasil login")      
+                print("selamat berhasil login")  
+                status = "berhasil"
+                return status    
             else:
                 print("Maaf password salah")
          else:
@@ -46,6 +48,26 @@ class user_register(user):
         if usern != self.get__username():
             print("Selamat username tersedia")
             pw = str(input("Masukkan Password anda: "))
+            data_user[usern] = {
+                    "Password": pw,
+                    "category": {   }}
+            
+            print("Apakah anda ingin memasukkan data kategori sendiri atau dibuatkan sistem?")
+            print("1.buat data kategori sendiri \n2.dibuatkan oleh sistem")
+            pilihan = int(input("Masukkan pilihan anda menggunakan angka: "))
+            if pilihan == 1:
+                    self.add_category()
+                    print("data baru telah berhasil di tambahkan!")
+            elif pilihan == 2:
+                    data_user[usern]["category"] =  {
+                        "Password": pw,
+                        "category": {
+                            "Food": {},
+                            "Transport": {},
+                            "Bills": {},
+                            "Groceries": {}
+                                    }}
+            
         else:
             print("maaf username telah digunakan")
 
